@@ -2,7 +2,7 @@ syntax = "proto3";
 package calcpb;
 
 
-option go_package = "gitlab.com\\tleuzhan13\\grpc-go-course\\greet\\greetpb;greetpb";
+option go_package = "calcpb;calcpb";
 
 service CalcServ{
   rpc CalcPrime(CalcPrimeRequest) returns (stream CalcPrimeResponse){};
