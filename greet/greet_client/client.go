@@ -23,89 +23,12 @@ func main() {
 	c := greetpb.NewGreetServiceClient(conn)
 	doGreetingEveryone(c)
 }
-
-func doUnary(c greetpb.GreetServiceClient) {
-	ctx := context.Background()
-
-	request := &greetpb.GreetRequest{Greeting: &greetpb.Greeting{
-		FirstName: "Ilon",
-		LastName:  "Musk",
-	}}
-
-	response, err := c.Greet(ctx, request)
-	if err != nil {
-		log.Fatalf("error while calling Greet RPC %v", err)
-	}
-	log.Printf("response from Greet:%v", response.Result)
-}
-
-func doManyTimesFromServer(c greetpb.GreetServiceClient) {
-	ctx := context.Background()
-	req := &greetpb.GreetManyTimesRequest{Greeting: &greetpb.Greeting{
-		FirstName: "Bob",
-		LastName:  "123",
-	}}
-
-	stream, err := c.GreetManyTimes(ctx, req)
-	if err != nil {
-		log.Fatalf("error while calling GreetManyTimes RPC %v", err)
-	}
-	defer stream.CloseSend()
-
-LOOP:
-	for {
-		res, err := stream.Recv()
-		if err != nil {
-			if err == io.EOF {
-				// we've reached the end of the stream
-				break LOOP
-			}
-			log.Fatalf("error while reciving from GreetManyTimes RPC %v", err)
-		}
-		log.Printf("response from GreetManyTimes:%v \n", res.GetResult())
-	}
+func doPrime() {
 
 }
+func doAvg() {
 
-func doLongGreet(c greetpb.GreetServiceClient) {
-
-	requests := []*greetpb.LongGreetRequest{
-		{
-			Greeting: &greetpb.Greeting{
-				FirstName: "Tleu",
-			},
-		},
-		{
-			Greeting: &greetpb.Greeting{
-				FirstName: "Bob",
-			},
-		},
-		{
-			Greeting: &greetpb.Greeting{
-				FirstName: "Alice",
-			},
-		},
-	}
-
-	ctx := context.Background()
-	stream, err := c.LongGreet(ctx)
-	if err != nil {
-		log.Fatalf("error while calling LongGreet: %v", err)
-	}
-
-	for _, req := range requests {
-		fmt.Printf("Sending req: %v\n", req)
-		stream.Send(req)
-		time.Sleep(1000 * time.Millisecond)
-	}
-
-	res, err := stream.CloseAndRecv()
-	if err != nil {
-		log.Fatalf("error while receiving response from LongGreet: %v", err)
-	}
-	fmt.Printf("LongGreet Response: %v\n", res)
 }
-
 func doGreetingEveryone(c greetpb.GreetServiceClient) {
 
 	stream, err := c.GreetEveryone(context.Background())
