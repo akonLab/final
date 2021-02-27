@@ -1,0 +1,22 @@
+syntax = "proto3";
+package calcpb;
+
+
+option go_package = "gitlab.com\\tleuzhan13\\grpc-go-course\\greet\\greetpb;greetpb";
+
+service CalcServ{
+  rpc CalcPrime(CalcPrimeRequest) returns (stream CalcPrimeResponse){};
+  rpc CalcAvg(stream CalcAvgRequest) returns (CalcAvgResponse){};
+}
+
+message CalcPrimeResponse{
+  int32 num = 1;
+}
+message CalcPrimeRequest{
+  int32 num = 1;
+}
+message CalcAvgResponse{
+  int32 num = 1;
+}message CalcAvgRequest{
+  float num = 1;
+}
