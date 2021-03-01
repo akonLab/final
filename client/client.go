@@ -1,13 +1,11 @@
 package clientpackage
 
 import (
+	"com.grpc.tleu/calcpb"
 	"context"
 	"fmt"
-	"io"
 	"log"
-	"time"
 
-	//"com.grpc.tleu/greet/greetpb"
 	"google.golang.org/grpc"
 )
 
@@ -19,72 +17,41 @@ func main() {
 	}
 	defer conn.Close()
 
-	c := greetpb.NewGreetServiceClient(conn)
+	c := calcpb.NewCalcServClient(conn)
 
 	doPrime(c)
 	doAvg(c)
 }
-func doPrime() {
 
-}
-func doAvg() {
-
-}
-func doGreetingEveryone(c greetpb.GreetServiceClient) {
-
-	stream, err := c.GreetEveryone(context.Background())
+func doPrime(c calcpb.CalcServClient) {
+	ctx := context.Background()
+	req := &calcpb.CalcPrimeRequest{}
+	&prime
+	response, err := c.C(ctx, req)
 	if err != nil {
-		log.Fatalf("error while open stream: %v", err)
+		log.Fatalf("error while calling Greet RPC %v", err)
 	}
+	log.Printf("response from Greet:%v", response.Result)
 
-	requests := []*greetpb.GreetEveryoneRequest{
-		{
-			Greeting: &greetpb.Greeting{
-				FirstName: "Tleu",
-			},
-		},
-		{
-			Greeting: &greetpb.Greeting{
-				FirstName: "Bob",
-			},
-		},
-		{
-			Greeting: &greetpb.Greeting{
-				FirstName: "Alice",
-			},
-		},
+	num := 120
+	arr := []int{}
+	for i := 2; i < num; i++ {
+		for num%i == 0 {
+			arr = append(arr, i)
+			num /= i
+		}
 	}
+	if num > 2 {
+		arr = append(arr, num)
+	}
+	fmt.Print(arr)
 
-	waitc := make(chan struct{})
-
-	go func() {
-		for _, req := range requests {
-			log.Printf("Sending message: %v", req)
-			err := stream.Send(req)
-			if err != nil {
-				log.Fatalf("error while sending req to server: %v", err.Error())
-			}
-			time.Sleep(time.Second)
-		}
-		err := stream.CloseSend()
-		if err != nil {
-			log.Fatalf("errow while closing client's stream")
-		}
-	}()
-
-	go func() {
-		for {
-			res, err := stream.Recv()
-			if err == io.EOF {
-				break
-			}
-			if err != nil {
-				log.Fatalf("error while getting message from stream: %v", err.Error())
-			}
-			log.Printf("Received: %v", res.GetResult())
-		}
-		close(waitc)
-	}()
-
-	<-waitc
+}
+func doAvg(c calcpb.CalcServClient) {
+	xs := []float64{2, 4, 3, 1}
+	total := 0.0
+	for _, v := range xs {
+		total += v
+	}
+	fmt.Print(total / float64(len(xs)))
 }

@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9ca0cfa8-75c4-44c9-bc9e-6f9838e4f4d6" name="Default Changelist" comment="4nd commit add grpc pb file">
+    <list default="true" id="9ca0cfa8-75c4-44c9-bc9e-6f9838e4f4d6" name="Default Changelist" comment="1 more remove">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calculator/average.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/calculator/prime.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/client/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +27,9 @@
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
   </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
   <component name="ProjectId" id="1p3UzwgzPDm0ecpSoRDbmIXGowT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -35,6 +42,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$" />
   </component>
   <component name="RecentsManager">
@@ -42,7 +50,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build average.go">
+  <component name="RunManager" selected="Go Build.go build prime.go">
     <configuration name="go build average.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="final" />
       <working_directory value="$PROJECT_DIR$" />
@@ -61,8 +69,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build average.go" />
         <item itemvalue="Go Build.go build prime.go" />
+        <item itemvalue="Go Build.go build average.go" />
       </list>
     </recent_temporary>
   </component>
@@ -70,10 +78,26 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="2nd commit" />
     <MESSAGE value="3nd commit add proto file" />
     <MESSAGE value="4nd commit add grpc pb file" />
-    <option name="LAST_COMMIT_MESSAGE" value="4nd commit add grpc pb file" />
+    <MESSAGE value="remove agay greet part" />
+    <MESSAGE value="1 more remove" />
+    <option name="LAST_COMMIT_MESSAGE" value="1 more remove" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
   </component>
 </project>

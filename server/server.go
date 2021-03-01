@@ -1,14 +1,18 @@
 package server
 
 import (
+	"com.grpc.tleu/calcpb"
 	"context"
 	"google.golang.org/grpc"
 )
 
-type GRPCServer struct {
+type Server struct {
+	calcpb.UnimplementedCalcServServer
 }
 
-func (s *GRPCServer) CalcPrime(ctx context.Context, in *CalcPrimeRequest, opts ...grpc.CallOption) (CalcServ_CalcPrimeClient, error) {
-	return &in.CalcPrimeResponse{}
+func (s *Server) CalcPrime(ctx context.Context, in *calcpb.CalcServ_CalcPrimeServer, opts ...grpc.CallOption) (calcpb.CalcServ_CalcPrimeClient, error) {
+	return nil
 }
-func (s *GRPCServer) CalcAvg(ctx context.Context, opts ...grpc.CallOption) (CalcServ_CalcAvgClient, error)
+func (s *Server) CalcAvg(ctx context.Context, opts ...grpc.CallOption) (calcpb.CalcServ_CalcAvgClient, error) {
+	return nil
+}
