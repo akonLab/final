@@ -3,6 +3,7 @@
 package calcpb
 
 import (
+	"com.grpc.tleu/server"
 	context "context"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
@@ -124,7 +125,7 @@ type UnsafeCalcServServer interface {
 	mustEmbedUnimplementedCalcServServer()
 }
 
-func RegisterCalcServServer(s grpc.ServiceRegistrar, srv CalcServServer) {
+func RegisterCalcServServer(s grpc.ServiceRegistrar, srv *server.Server) {
 	s.RegisterService(&CalcServ_ServiceDesc, srv)
 }
 

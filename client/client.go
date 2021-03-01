@@ -10,7 +10,6 @@ import (
 )
 
 func main() {
-
 	conn, err := grpc.Dial("localhost:50051", grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("could not connect: %v", err)
@@ -26,13 +25,17 @@ func main() {
 func doPrime(c calcpb.CalcServClient) {
 	ctx := context.Background()
 	req := &calcpb.CalcPrimeRequest{}
-	&prime
-	response, err := c.C(ctx, req)
+
+	response, err := c.CalcPrime(ctx, req)
 	if err != nil {
 		log.Fatalf("error while calling Greet RPC %v", err)
 	}
-	log.Printf("response from Greet:%v", response.Result)
+	log.Printf("response from Greet:%v", response)
 
+	prime()
+}
+
+func prime() {
 	num := 120
 	arr := []int{}
 	for i := 2; i < num; i++ {
@@ -45,9 +48,22 @@ func doPrime(c calcpb.CalcServClient) {
 		arr = append(arr, num)
 	}
 	fmt.Print(arr)
-
 }
+
 func doAvg(c calcpb.CalcServClient) {
+	ctx := context.Background()
+	req := &calcpb.CalcPrimeRequest{}
+
+	response, err := c.CalcPrime(ctx, req)
+	if err != nil {
+		log.Fatalf("error while calling Greet RPC %v", err)
+	}
+	log.Printf("response from Greet:%v", response)
+
+	avg()
+}
+
+func avg() {
 	xs := []float64{2, 4, 3, 1}
 	total := 0.0
 	for _, v := range xs {

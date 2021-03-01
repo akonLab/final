@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9ca0cfa8-75c4-44c9-bc9e-6f9838e4f4d6" name="Default Changelist" comment="1 more remove">
+    <list default="true" id="9ca0cfa8-75c4-44c9-bc9e-6f9838e4f4d6" name="Default Changelist" comment="updates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calculator/average.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calculator/prime.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/calcpb/calc_grpc.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/calcpb/calc_grpc.pb.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/client/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,6 +47,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/calcpb" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -95,7 +96,8 @@
     <MESSAGE value="4nd commit add grpc pb file" />
     <MESSAGE value="remove agay greet part" />
     <MESSAGE value="1 more remove" />
-    <option name="LAST_COMMIT_MESSAGE" value="1 more remove" />
+    <MESSAGE value="1 more remove + updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="1 more remove + updates" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
